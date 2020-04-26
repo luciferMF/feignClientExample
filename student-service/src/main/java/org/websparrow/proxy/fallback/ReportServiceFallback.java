@@ -3,17 +3,18 @@ package org.websparrow.proxy.fallback;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.websparrow.proxy.ReportServiceProxy;
 
-@Component
-@Scope("prototype")
 public class ReportServiceFallback implements ReportServiceProxy {
+
+	private Throwable cause;
+	public ReportServiceFallback(Throwable cause) {
+		this.cause = cause;
+	}
 
 	@Override
 	public List<String> reports() {
-		return Arrays.asList("null");
+		System.out.println(cause);
+		return Arrays.asList(cause.getMessage());
 	}
-
 }
