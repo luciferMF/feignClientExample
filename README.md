@@ -6,12 +6,14 @@ For feign fallback factory implementation follow below steps:
 4: Add fallbackFactory property on ProxyInterface.
 
 example:
-@Component
-public class ReportServiceFallbackFactory implements FallbackFactory<ReportServiceProxy>{
 
-	@Override
-	public ReportServiceProxy create(Throwable cause) {
-		return new ReportServiceFallback(cause);
+
+	@Component
+	public class ReportServiceFallbackFactory implements FallbackFactory<ReportServiceProxy>{
+
+		@Override
+		public ReportServiceProxy create(Throwable cause) {
+			return new ReportServiceFallback(cause);
+		}
+
 	}
-
-}
