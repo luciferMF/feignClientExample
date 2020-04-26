@@ -9,7 +9,7 @@ import org.websparrow.proxy.fallback.factory.ReportServiceFallbackFactory;
 @FeignClient(name = "report-service", url = "http://localhost:8081", fallbackFactory =  ReportServiceFallbackFactory.class)
 public interface ReportServiceProxy {
 
-	@GetMapping("/reports")
+	@GetMapping("/reportss")
 	public List<String> reports();
 
 }
